@@ -1,12 +1,12 @@
 /* Will be compiled down to a single stylesheet with your sass files */
 .head {
-  margin-bottom:10px;
+  margin-bottom:0px;
 }
-#map {
+#map, #heatmap {
   height: 500px;
 }
 
-#map img {
+#map img, #heatmap img {
   max-width:none;
 }
 

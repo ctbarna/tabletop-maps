@@ -9,11 +9,13 @@ $(function () {
 
     // Our map elements.
     var map = new google.maps.Map(document.getElementById("map"), options);
+    var heatmap = new google.maps.Map(document.getElementById("heatmap"), options);
     var geocoder = new google.maps.Geocoder();
     var mapBounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow({content: ''});
 
     var markers = [];
+    var points = [];
     for (var i = 0; i < data.length; i += 1) {
       (function () {
         var element = data[i];
@@ -49,6 +51,13 @@ $(function () {
         // Geocode the points.
         if ('lat' in element && 'lng' in element) {
           var point = new google.maps.LatLng(element.lat, element.lng);
+          points.push(point);
+
+          for (var j = 0; j < points.length; j += 1) {
+            mapBounds.extend(point);
+            heatmap.fitBounds(mapBounds);
+          }
+
           generateMarker(point);
         } else if ('location' in element) {
           geocoder.geocode({address: element.location }, function (results, status) {
@@ -61,6 +70,10 @@ $(function () {
         }
       })();
     }
+    var heatmapLayer = new google.maps.visualization.HeatmapLayer({
+      data: points,
+      map: heatmap
+    });
   };
 
   var tabletop = Tabletop.init({
