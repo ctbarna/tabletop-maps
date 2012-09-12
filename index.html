@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>Let's Make Maps!</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width"/>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="styles/bootstrap.css"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+        <script src="scripts/vendor/modernizr.min.js"></script>
+    </head>
+    <body>
+    <div class="container" style="margin-top:50px">
+      <div class="row">
+        <div class="span12 head">
+          <div class="page-header">
+            <h1>Tabletop.js Maps</h1>
+          </div>
+          <p>This is a proof of concept using Tabletop.js as a data source for
+            a map generated with the Google Maps API. The data on the map (when
+            it loads) is of every crime that was reported in Chicago on
+            September 11, 2011. The data was exported from Chicago's own <a
+              href="https://data.cityofchicago.org/">data portal</a> as CSV and
+            then uploaded to Google Docs. All rows except those on 9/11/2011
+            were deleted as well as some columns. There have otherwise been no
+            transformations of the data.</p>
+          <p>You can actually throw any published Google spreadsheet at this
+            script and have it geocode the 'lat' and 'lng' or 'location'
+            columns.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div id="map">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <h3>Frequently Asked Questions</h3>
+          <h5>Why don't you just use Google Fusion Tables?</h5>
+          <p>I don't really like your attitude&hellip;</p>
+        </div>
+      </div>
+    </div>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
+
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOTnq44ibKAWqQ-g2aQptln0cMpT93vV4&sensor=false"></script>
+        <script src="scripts/vendor/tabletop.js"></script>
+
+        <script src="scripts/app.js"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

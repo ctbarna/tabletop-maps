@@ -1,0 +1,17 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+.head {
+  margin-bottom:10px;
+}
+#map {
+  height: 500px;
+}
+
+#map img {
+  max-width:none;
+}
+
+ul.infoWindow {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+}
